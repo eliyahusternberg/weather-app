@@ -1,4 +1,4 @@
-mport requests
+import requests
 import bs4
 import collections
 
@@ -7,10 +7,8 @@ WeatherReport = collections.namedtuple('WeatherReport',
                                        'cond,temp,scale,loc')
 
 def main():
-    code = input('What zipcode do you want weather for? ')
-
+    code = input("What zipcode do you want weather for?")
     html =  get_html_from_web(code)
-
     report= get_weather_from_html(html)
     print('The temp in {} is {} {} and {}'.format(
         report.loc,
@@ -22,7 +20,6 @@ def main():
 def get_html_from_web(code):
     url = 'https://www.wunderground.com/weather/{}'.format(code)
     response = requests.get(url)
-
     return  response.text
 
 
